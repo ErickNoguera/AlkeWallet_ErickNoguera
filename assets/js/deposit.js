@@ -14,6 +14,11 @@ $(function () {
   const $form = $('#formDeposito');
   const $msg = $('#msgDeposito');
 
+  // Botones de monto rapido: rellenan el campo de monto
+  $('#montosRapidos button').on('click', function () {
+    $('#monto').val($(this).data('monto')).trigger('focus');
+  });
+
   $form.on('submit', function (e) {
     e.preventDefault();
     $msg.addClass('d-none');
