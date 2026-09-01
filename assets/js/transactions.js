@@ -16,11 +16,22 @@ $(function () {
     recibido: 'Recibido'
   };
 
-  function render(filtro) {
+  function render() {
+    const filtro = $('#filtroTipo').val();
+    const busqueda = $('#buscarMovimiento').val().trim().toLowerCase();
+
     let txs = AW.transaccionesUsuario(u.id);
 
     if (filtro && filtro !== 'todos') {
       txs = txs.filter(t => t.tipo === filtro);
+    }
+
+    // Busqueda por texto en contraparte o descripcion
+    if (busqueda) {
+      txs = txs.filter(t =>
+        (t.contraparte || '').toLowerCase().indexOf(busqueda) !== -1 ||
+        (t.descripcion || '').toLowerCase().indexOf(busqueda) !== -1
+      );
     }
 
     const $tbody = $('#tablaMovimientos tbody').empty();
@@ -28,7 +39,7 @@ $(function () {
     if (!txs.length) {
       $tbody.append(
         '<tr><td colspan="5" class="text-center text-muted py-4">' +
-        'No hay movimientos para este filtro.</td></tr>'
+        'No hay movimientos que coincidan con la busqueda.</td></tr>'
       );
       $('#resumenMovimientos').text('0 movimientos');
       return;
@@ -59,9 +70,8 @@ $(function () {
     });
   }
 
-  $('#filtroTipo').on('change', function () {
-    render($(this).val());
-  });
+  $('#filtroTipo').on('change', render);
+  $('#buscarMovimiento').on('input', render);
 
-  render('todos');
+  render();
 });
