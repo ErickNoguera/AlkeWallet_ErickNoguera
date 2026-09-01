@@ -1,0 +1,215 @@
+/* ============================================================
+   Alke Wallet - Estilos generales
+   Paleta fintech: violeta corporativo + acento turquesa
+   ============================================================ */
+
+:root {
+  --aw-primary: #4f2d7f;
+  --aw-primary-dark: #3a1f61;
+  --aw-accent: #00c2a8;
+  --aw-bg: #f4f5fb;
+  --aw-text: #1f2333;
+  --aw-muted: #6b7280;
+  --aw-danger: #e5484d;
+  --aw-success: #1a9d6e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: var(--aw-bg);
+  color: var(--aw-text);
+}
+
+/* ---------- Marca ---------- */
+.aw-logo-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--aw-accent);
+  box-shadow: 0 0 0 4px rgba(0, 194, 168, .25);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.aw-logo-lg {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* ---------- Navbar ---------- */
+.aw-navbar {
+  background: linear-gradient(90deg, var(--aw-primary), var(--aw-primary-dark));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .12);
+}
+.aw-badge-saldo {
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  font-weight: 600;
+  padding: .5em .8em;
+}
+
+/* ---------- Pantallas de autenticacion / splash ---------- */
+.aw-auth,
+.aw-splash {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 20%, rgba(91, 52, 145, .48), transparent 42%),
+              linear-gradient(135deg, var(--aw-primary), var(--aw-primary-dark));
+  padding: 1.5rem;
+}
+.aw-splash {
+  color: #fff;
+  text-align: center;
+}
+
+.aw-auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+}
+.aw-auth-card h1 {
+  font-size: 1.5rem;
+  margin: .25rem 0 0;
+}
+.aw-auth-card .aw-sub {
+  color: var(--aw-muted);
+  font-size: .95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Contenido interno ---------- */
+.aw-page { padding: 2rem 0 3rem; }
+
+.aw-hero {
+  background: linear-gradient(120deg, var(--aw-primary), #6b3fb0);
+  color: #fff;
+  border-radius: 18px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.aw-hero .saldo {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+/* ---------- Tarjetas resumen ---------- */
+.aw-card-anim { position: relative; }
+
+.aw-summary-card {
+  background: #fff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(31, 35, 51, .06);
+  height: 100%;
+}
+.aw-summary-card .label {
+  color: var(--aw-muted);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.aw-summary-card .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Indicadores de movimiento ---------- */
+.aw-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.aw-dot-in { background: var(--aw-success); }
+.aw-dot-out { background: var(--aw-danger); }
+
+/* ---------- Botones ---------- */
+.btn-aw {
+  background: var(--aw-primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .6rem 1.2rem;
+  font-weight: 600;
+}
+.btn-aw:hover,
+.btn-aw:focus {
+  background: var(--aw-primary-dark);
+  color: #fff;
+}
+.btn-aw-accent {
+  background: var(--aw-accent);
+  color: #04312b;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.btn-aw-accent:hover,
+.btn-aw-accent:focus {
+  filter: brightness(.95);
+  color: #04312b;
+}
+
+/* ---------- Tabla de movimientos ---------- */
+.aw-table-wrap {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(31, 35, 51, .06);
+}
+#tablaMovimientos { margin: 0; }
+#tablaMovimientos thead th {
+  border: none;
+  color: var(--aw-muted);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge.aw-badge-deposito { background: #e6f7f1; color: #0c7a55; }
+.badge.aw-badge-recibido { background: #e8f0ff; color: #2551b8; }
+.badge.aw-badge-enviado  { background: #fdeaea; color: #b3282c; }
+.badge.aw-badge-retiro   { background: #fff3e0; color: #a15c00; }
+
+/* ---------- Formularios ---------- */
+.aw-forms-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(31, 35, 51, .06);
+}
+.aw-forms-card legend {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ---------- Autocompletar (jQuery UI) ---------- */
+.ui-autocomplete {
+  z-index: 1080;
+  max-height: 240px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+/* ---------- Pie ---------- */
+footer.aw-footer {
+  text-align: center;
+  color: var(--aw-muted);
+  padding: 1.5rem 0;
+  font-size: .85rem;
+}
+
+@media (max-width: 576px) {
+  .aw-hero .saldo { font-size: 1.9rem; }
+  .aw-auth-card { padding: 1.75rem 1.25rem; }
+}
