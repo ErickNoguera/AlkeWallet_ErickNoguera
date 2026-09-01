@@ -12,6 +12,15 @@ $(function () {
 
   const $form = $('#formLogin');
   const $alert = $('#loginAlert');
+  const RECORDAR_KEY = 'aw_recordar_email';
+
+  // Precarga el correo recordado de un ingreso anterior
+  const correoGuardado = localStorage.getItem(RECORDAR_KEY);
+  if (correoGuardado) {
+    $('#email').val(correoGuardado);
+    $('#recordar').prop('checked', true);
+    $('#password').trigger('focus');
+  }
 
   $form.on('submit', function (e) {
     e.preventDefault();
@@ -35,6 +44,13 @@ $(function () {
         .hide().fadeIn(200);
       $('#password').val('');
       return;
+    }
+
+    // Guarda o limpia el correo recordado segun la casilla
+    if ($('#recordar').is(':checked')) {
+      localStorage.setItem(RECORDAR_KEY, email);
+    } else {
+      localStorage.removeItem(RECORDAR_KEY);
     }
 
     // Ingreso correcto
