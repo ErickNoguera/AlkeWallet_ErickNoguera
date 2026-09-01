@@ -77,3 +77,10 @@ navegador.
 | `feature/login`          | Funcionalidad de login             |
 | `feature/transacciones`  | Envio y recepcion de fondos        |
 | `feature/depositos`      | Depositos y saldo                  |
+
+## Modulo: Fundamentos de Bases de Datos Relacionales
+
+La carpeta [`database/`](database/) contiene el entregable del modulo de bases de
+datos: el script `AlkeWallet.sql` (MySQL 8), el diagrama entidad-relacion y el
+documento Word con todas las sentencias SQL y resultados. Ver
+[`database/README.md`](database/README.md).
